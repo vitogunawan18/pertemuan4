@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
 
 class QuestWidget extends StatelessWidget {
+  final String title;
+  final String reward;
+
+    const QuestWidget({
+    super.key,
+    required this.title,
+    required this.reward,
+  });
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Quest Clicked!')),
+          SnackBar(content: Text('Quest "$title" Clicked!')),
         );
       },
       borderRadius: BorderRadius.circular(14),
@@ -32,24 +40,25 @@ class QuestWidget extends StatelessWidget {
         children: [
           Container(
             width: 40,
-            height: 25,
+            height: 40,
+            margin: EdgeInsets.only(right: 12),
             decoration: BoxDecoration(
               color: Colors.orangeAccent,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Icon(Icons.task_alt,color: const Color.fromARGB(255, 230, 8, 8),),
+            child: Icon(Icons.warning_amber_rounded, color: const Color.fromARGB(255, 252, 66, 66),),
           ),
           Expanded( 
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children:[
-              Text('Defeat the Dragon',
+              Text(title,
               style: TextStyle(
                 color: const Color.fromARGB(255, 66, 61, 55),
                 fontWeight: FontWeight.bold,
                 fontSize: 14,
               ),),
-              Text('Reward: 500 Gold',
+              Text('Reward: $reward',
               style: TextStyle(
                 color: const Color.fromARGB(255, 66, 61, 55).withAlpha(150),
                 fontStyle: FontStyle.italic,
