@@ -9,7 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,11 +30,12 @@ class MyApp extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsetsGeometry.all(20),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               HeaderWidget(
-                name: "John Doe",
-                role: "Warrior",
-                level: 99,
+                name: "Vito San Andreas",
+                role: "Ucok Hunter",
+                level: 100,
               ),
               SizedBox(height: 20),
               Row(
@@ -45,8 +46,35 @@ class MyApp extends StatelessWidget {
                   ChipWidget(label: "SP", icon: Icons.star, color: Colors.yellow, value: "25", bg: Colors.yellowAccent),
                 ],
               ),
-              Text('Active Quests'),
-              QuestWidget()
+              const SizedBox(height: 20),
+              Text('Active Quests',style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),),
+              const SizedBox(height: 10),
+
+              const Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: QuestWidget(
+                  title: "Minta maaf ke compiler sambil nangis", 
+                  reward: "Error Hilang Satu"
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: QuestWidget(
+                  title: "Ketik kode pakai jempol kaki", 
+                  reward: "Gaji Programmer Senior"
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 15),
+                child: QuestWidget(
+                  title: "Push ke main tanpa testing", 
+                  reward: "Surat Peringatan (SP1)"
+                ),
+              ),
             ],
           ),
         ),
